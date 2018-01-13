@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using BusinessLogic.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,10 +25,10 @@ namespace ConsolePhoneBookApp.Controllers
             Console.Write("Enter name and number: ");
             string input = Console.ReadLine();
             IList<string> splittedInput = input.Split(' ');
-            Contact kumamon = new Contact();
-            kumamon.Name = splittedInput[0];
-            kumamon.Number = splittedInput[1];
-            _myPhoneBook.Add(kumamon);
+            Contact person = new Contact();
+            person.Name = splittedInput[0];
+            person.Number = splittedInput[1];
+            _myPhoneBook.Add(person);
         }
         private void ShowNumbersList()
         {
