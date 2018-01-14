@@ -9,28 +9,33 @@ namespace BusinessLogic
 {
     public class PhoneBook : IPhoneBook
     {
-        private List<Contact> _contactsList = new List<Contact>(); 
+        private List<Contact> _contacts = new List<Contact>();
 
-        public List<Contact> ContactList
+        public IEnumerable<Contact> Contacts
         {
-            get { return _contactsList; }
+            get { return _contacts; }
         }
-
-        //to validator
-        //private bool IsUnique(string number)
-        //{
-        //    return !_numbers.Contains(number);
-        //}
 
         public void Add(Contact contact)
         {
             //bool isUniqueNumber = IsUnique(number);
-            _contactsList.Add(contact);
-            }
+
+            _contacts.Add(contact);
         }
 
-        //public IEnumerable<Contact> GetAll()
-        //{
-        //    return _contactsList;
-        //}
+    }
+
 }
+
+    // >> to validator
+    //private bool IsUnique(string number)
+    //{
+    //    return !_numbers.Contains(number);
+    //}
+
+
+    //public IEnumerable<Contact> GetAll()
+    //{
+    //    return _contactsList;
+    //}
+

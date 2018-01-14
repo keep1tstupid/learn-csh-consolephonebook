@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//phonebook должен быть private в контроллере ??? не догнала( теперь догнала(  
 
 namespace ConsolePhoneBookApp.Controllers
 {
@@ -33,7 +32,7 @@ namespace ConsolePhoneBookApp.Controllers
         private void ShowNumbersList()
         {
             Console.WriteLine("Saved phone numbers: ");
-            List<Contact> allNumbers = _myPhoneBook.ContactList;
+            List<Contact> allNumbers = _myPhoneBook.Contacts.ToList();
             allNumbers.ForEach(item => Console.WriteLine(item));
             //foreach(string number in allNumbers)
             //{

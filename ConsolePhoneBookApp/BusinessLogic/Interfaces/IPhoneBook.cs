@@ -9,8 +9,10 @@ namespace BusinessLogic.Interfaces
 { 
     public interface IPhoneBook
     {
-        List<Contact> ContactList { get; } //не Enumerable потому что forEach
+        IEnumerable<Contact> Contacts { get; } 
         void Add(Contact contact);
         //IEnumerable<Contact> GetAll();
     }
 }
+
+
