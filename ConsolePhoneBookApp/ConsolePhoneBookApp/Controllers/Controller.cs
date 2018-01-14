@@ -26,7 +26,7 @@ namespace ConsolePhoneBookApp.Controllers
             IList<string> splittedInput = input.Split(' ');
             Contact person = new Contact();
             person.Name = splittedInput[0];
-            person.Number = splittedInput[1];
+            person.TempNumber = splittedInput[1];
             _myPhoneBook.Add(person);
         }
         private void ShowNumbersList()

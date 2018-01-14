@@ -18,24 +18,37 @@ namespace BusinessLogic
 
         public void Add(Contact contact)
         {
-            //bool isUniqueNumber = IsUnique(number);
+            
 
-            _contacts.Add(contact);
+            List<Contact> found = _contacts.FindAll(item => item.Name == contact.Name);
+            if (found.Count == 0)
+            {
+                contact.Add(contact.TempNumber);
+                _contacts.Add(contact);
+            }
+
+            else
+            {
+                found[0].Add(contact.TempNumber);
+            }
+
         }
 
     }
 
 }
 
-    // >> to validator
-    //private bool IsUnique(string number)
-    //{
-    //    return !_numbers.Contains(number);
-    //}
+// >> to validator
+//private bool IsUnique(string number)
+//{
+//    return !_numbers.Contains(number);
+//}
 
 
-    //public IEnumerable<Contact> GetAll()
-    //{
-    //    return _contactsList;
-    //}
+//bool isUniqueNumber = IsUnique(number);
+
+//public IEnumerable<Contact> GetAll()
+//{
+//    return _contactsList;
+//}
 
