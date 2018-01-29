@@ -10,22 +10,33 @@ namespace BusinessLogic
     public class Contact: IContact    
     {
         //private string _name;
-        private List <string> _numbers = new List<string>();  
+        private IList <string> _numbers = new List<string>();  
 
         public string Name { get; set; }
-        public string TempNumber { get; set; } 
+        //public string TempNumber { get; set; } 
         
         // tempopary soluton not to update controller.cs 
         // in the future controller will recieve string and put it into the PhoneBook 
         // PhoneBook will validate this string and decide: put in the list new Contact or update existing one. 
 
-        public IEnumerable<string> Numbers
-        { get { return _numbers; } }
-        
+        public IList<string> Numbers
+        { get { return _numbers; }
+          set { _numbers = value; }
+        }
+
+        public Contact() { }
+
+        public Contact(string name, string number) { }
+
+        public Contact(string name, IList<string> numbers) { }
 
         public void Add (string Number)
         {
             _numbers.Add(Number);
+        }
+        public void Add(IList<string> numbers)
+        {
+            _numbers.Concat(numbers);
         }
 
 

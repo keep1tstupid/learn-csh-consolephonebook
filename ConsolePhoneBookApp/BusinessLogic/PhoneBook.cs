@@ -9,27 +9,24 @@ namespace BusinessLogic
 {
     public class PhoneBook : IPhoneBook
     {
-        private List<Contact> _contacts = new List<Contact>();
+        private List<IContact> _contacts = new List<IContact>();
 
-        public IEnumerable<Contact> Contacts
+        public IList<IContact> Contacts
         {
             get { return _contacts; }
         }
 
-        public void Add(Contact contact)
+        public void Add(IContact contact)
         {
-            
-
-            List<Contact> found = _contacts.FindAll(item => item.Name == contact.Name);
-            if (found.Count == 0)
+            List<IContact> founded = _contacts.FindAll(item => item.Name == contact.Name);
+            if (founded.Count == 0)
             {
-                contact.Add(contact.TempNumber);
                 _contacts.Add(contact);
             }
 
             else
             {
-                found[0].Add(contact.TempNumber);
+                founded[0].Add(contact.Numbers);
             }
 
         }

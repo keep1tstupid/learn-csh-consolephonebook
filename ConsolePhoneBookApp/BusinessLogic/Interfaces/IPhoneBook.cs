@@ -9,8 +9,8 @@ namespace BusinessLogic.Interfaces
 { 
     public interface IPhoneBook
     {
-        IEnumerable<Contact> Contacts { get; } 
-        void Add(Contact contact);
+        IList<IContact> Contacts { get; } 
+        void Add(IContact contact);
         //IEnumerable<Contact> GetAll();
     }
 }

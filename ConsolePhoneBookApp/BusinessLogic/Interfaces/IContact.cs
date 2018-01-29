@@ -10,9 +10,11 @@ namespace BusinessLogic.Interfaces
     public interface IContact
     {
         string Name { get; set; }
-        IEnumerable<string> Numbers { get; }
 
-        void Add( string Number );
+        // set;
+        IList<string> Numbers { get; set; }
 
+        void Add(string Number );
+        void Add(IList<string> numbers);
     }
 }

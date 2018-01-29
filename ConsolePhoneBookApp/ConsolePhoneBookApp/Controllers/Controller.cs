@@ -13,6 +13,7 @@ namespace ConsolePhoneBookApp.Controllers
     class Controller : IController  
     {
         private IPhoneBook _myPhoneBook;
+        private IList<string> userNumbers;
 
         public Controller(IPhoneBook book)
         {
@@ -24,15 +25,17 @@ namespace ConsolePhoneBookApp.Controllers
             Console.Write("Enter name and number: ");
             string input = Console.ReadLine();
             IList<string> splittedInput = input.Split(' ');
-            Contact person = new Contact();
+            IContact person = new Contact();
             person.Name = splittedInput[0];
-            person.TempNumber = splittedInput[1];
+            userNumbers = new List<string>();
+            userNumbers.Add(splittedInput[1].ToString());
+            person.Numbers = userNumbers;
             _myPhoneBook.Add(person);
         }
         private void ShowNumbersList()
         {
             Console.WriteLine("Saved phone numbers: ");
-            List<Contact> allNumbers = _myPhoneBook.Contacts.ToList();
+            List<IContact> allNumbers = _myPhoneBook.Contacts.ToList();
             allNumbers.ForEach(item => Console.WriteLine(item));
             //foreach(string number in allNumbers)
             //{
