@@ -25,11 +25,13 @@ namespace ConsolePhoneBookApp.Controllers
             Console.Write("Enter name and number: ");
             string input = Console.ReadLine();
             IList<string> splittedInput = input.Split(' ');
-            IContact person = new Contact();
-            person.Name = splittedInput[0];
             userNumbers = new List<string>();
             userNumbers.Add(splittedInput[1].ToString());
-            person.Numbers = userNumbers;
+            IContact person = new Contact(splittedInput[0], userNumbers);
+            //person.Name = splittedInput[0];
+            //userNumbers = new List<string>();
+            //userNumbers.Add(splittedInput[1].ToString());
+            //person.Numbers = userNumbers;
             _myPhoneBook.Add(person);
         }
         private void ShowNumbersList()
@@ -37,10 +39,6 @@ namespace ConsolePhoneBookApp.Controllers
             Console.WriteLine("Saved phone numbers: ");
             List<IContact> allNumbers = _myPhoneBook.Contacts.ToList();
             allNumbers.ForEach(item => Console.WriteLine(item));
-            //foreach(string number in allNumbers)
-            //{
-            //    Console.WriteLine(number);
-            //}
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
 

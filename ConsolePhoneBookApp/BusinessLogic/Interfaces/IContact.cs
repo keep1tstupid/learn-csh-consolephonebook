@@ -9,9 +9,8 @@ namespace BusinessLogic.Interfaces
 {
     public interface IContact
     {
-        string Name { get; set; }
+        string Name { get;  }
 
-        // set;
         IList<string> Numbers { get; set; }
 
         void Add(string Number );
