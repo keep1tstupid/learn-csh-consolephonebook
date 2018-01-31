@@ -20,7 +20,7 @@ namespace BusinessLogic
           set { _numbers = value; }
         }
 
-        //public Contact(string name, string number) { } >> I can't take in how to use 'this' to implement thing we discussed
+        public Contact(string name, string number): this(name, new List<string>(){ number }) { } //updated
 
         public Contact(string name, IList<string> numbers) {
             Name = name;
