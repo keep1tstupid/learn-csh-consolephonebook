@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogic.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,28 +9,43 @@ namespace BusinessLogic
 {
     public class PhoneBook : IPhoneBook
     {
-        private List<Contact> _contactsList = new List<Contact>(); 
+        private List<IContact> _contacts = new List<IContact>();
 
-        public List<Contact> ContactList
+        public IList<IContact> Contacts
         {
-            get { return _contactsList; }
+            get { return _contacts; }
         }
 
-        //to validator
-        //private bool IsUnique(string number)
-        //{
-        //    return !_numbers.Contains(number);
-        //}
-
-        public void Add(Contact contact)
+        public void Add(IContact contact)
         {
-            //bool isUniqueNumber = IsUnique(number);
-            _contactsList.Add(contact);
+            List<IContact> founded = _contacts.FindAll(item => item.Name == contact.Name);
+            if (founded.Count == 0)
+            {
+                _contacts.Add(contact);
             }
+
+            else
+            {
+                founded[0].Add(contact.Numbers);
+            }
+
         }
 
-        //public IEnumerable<Contact> GetAll()
-        //{
-        //    return _contactsList;
-        //}
+    }
+
 }
+
+// >> to validator
+//private bool IsUnique(string number)
+//{
+//    return !_numbers.Contains(number);
+//}
+
+
+//bool isUniqueNumber = IsUnique(number);
+
+//public IEnumerable<Contact> GetAll()
+//{
+//    return _contactsList;
+//}
+

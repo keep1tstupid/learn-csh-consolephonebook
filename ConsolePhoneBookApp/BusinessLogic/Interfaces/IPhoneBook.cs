@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace BusinessLogic
+namespace BusinessLogic.Interfaces
 { 
     public interface IPhoneBook
     {
-        List<Contact> ContactList { get; } //не Enumerable потому что forEach
-        void Add(Contact contact);
+        IList<IContact> Contacts { get; } 
+        void Add(IContact contact);
         //IEnumerable<Contact> GetAll();
     }
 }
+
+

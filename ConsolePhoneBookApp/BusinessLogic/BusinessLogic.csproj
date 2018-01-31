@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
-    <Compile Include="IPhoneBook.cs" />
+    <Compile Include="Interfaces\IContact.cs" />
+    <Compile Include="Interfaces\IPhoneBook.cs" />
     <Compile Include="PhoneBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
